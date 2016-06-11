@@ -14,7 +14,7 @@ OJS 3 provides a simplified theme API. All themes reside in the `/plugins/themes
 
 - The `index.php` loads the theme's PHP class file and instantiates it. [View the example](index.php)
 - The `version.xml` file defines basic information about the theme. [View the example](version.xml)
-- The theme's PHP class file should reflect the name of the plugin (eg - DefaultChildThemePlugin.inc.php). This is where the good stuff happens. [View the example](DeafultChildThemePlugin.inc.php)
+- The theme's PHP class file should reflect the name of the plugin (eg - DefaultChildThemePlugin.inc.php). This is where the good stuff happens. [View the example](DefaultChildThemePlugin.inc.php)
 
 The theme's PHP class file is where the theme will load styles and scripts,
 define it's name and description, and do whatever else is desired.
