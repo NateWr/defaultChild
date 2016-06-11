@@ -20,7 +20,7 @@ The theme's PHP class file is where the theme will load styles and scripts,
 define it's name and description, and do whatever else is desired.
 
 Let's walk through an example. In the snippet below, we load OJS's `ThemePlugin` class and then define our
-own class, `DefaultChildThemePlugin` which extends that class.
+own class, `DefaultThemePlugin` which extends that class.
 
 ```
 import('lib.pkp.classes.plugins.ThemePlugin');
