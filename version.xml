@@ -2,7 +2,7 @@
 <!DOCTYPE version SYSTEM "../../../lib/pkp/dtd/pluginVersion.dtd">
 
 <!--
-  * plugins/generic/tinymce/version.xml
+  * plugins/themes/default-child/version.xml
   *
   * Copyright (c) 2014-2016 Simon Fraser University Library
   * Copyright (c) 2003-2016 John Willinsky
@@ -12,10 +12,25 @@
   -->
 
 <version>
+	<!-- The application should match the theme folder to ensure it is unique -->
 	<application>default-child</application>
+
+	<!-- The type should always be `plugins.themes` -->
 	<type>plugins.themes</type>
+
+	<!--
+		The current version. It should always include 4 numbers.
+	    Valid: 1.0.2.3, 0.1.4.0
+		Invalid: 1.0, v1.0.4, 1.0.0.0b
+	-->
 	<release>1.0.0.0</release>
+
+	<!-- The date of the latest version -->
 	<date>2016-05-31</date>
+
+	<!-- This should always be 0 -->
 	<lazy-load>0</lazy-load>
+
+	<!-- The class name of the plugin. See index.php -->
 	<class>DefaultChildThemePlugin</class>
 </version>
