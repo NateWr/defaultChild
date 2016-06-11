@@ -19,15 +19,16 @@ OJS 3 provides a simplified theme API. All themes reside in the `/plugins/themes
 The theme's PHP class file is where the theme will load styles and scripts,
 define it's name and description, and do whatever else is desired.
 
-Let's walk through an example.
+Let's walk through an example. In the snippet below, we load OJS's `ThemePlugin` class and then define our
+own class, `DefaultChildThemePlugin` which extends that class.
 
 ```
 import('lib.pkp.classes.plugins.ThemePlugin');
 class DefaultThemePlugin extends ThemePlugin {
 ```
 
-In the snippet above, we load OJS's `ThemePlugin` class and then define our
-own class, `DefaultChildThemePlugin` which extends that class.
+Next, we define the `init()` method. This method allows us to register styles
+and scripts. It is only ever called when the theme is _active_.
 
 ```
 public function init() {
@@ -35,8 +36,7 @@ public function init() {
 }
 ```
 
-Next, we define the `init()` method. This method allows us to register styles
-and scripts. It is only ever called when the theme is _active_.
+In the example below, we have added a [LESS](http://lesscss.org) stylesheet and a JavaScript file.
 
 ```
 public function init() {
@@ -45,11 +45,13 @@ public function init() {
 }
 ```
 
-In the example above, we have added a [LESS](http://lesscss.org) stylesheet and a JavaScript file. The first argument passes a unique reference name. It can be whatever you'd like but it should remain unique to your theme.
+The first argument passes a unique reference name. It can be whatever you'd like but it should remain unique to your theme.
 
 The second argument tells it where to look to find these files. These paths are relative to your theme directory. So if your theme is in `/plugins/themes/my-custom-theme/`, you'd put the LESS file at `/plugins/themes/my-custom-theme/styles/index.less`.
 
 The theming API will automatically load these styles and scripts on the frontend of the site for you.
+
+Finally, we pass a name and description for the theme. And this is all there is to a basic theme.
 
 ```
 public function getDisplayName() {
@@ -61,8 +63,6 @@ public function getDescription() {
 }
 ```
 
-Finally, we pass a name and description for the theme. And this is all there is to a basic theme.
-
 ## Creating a child theme
 
 A child theme will extend an existing theme. It can add new scripts and styles,
@@ -73,14 +73,14 @@ A child theme requires the same foundation as a regular theme. That means you'll
 
 You'll want to write a custom `init()` method. Let's look at an example.
 
+In the example below, you'll notice we're not adding any scripts or styles. Instead we call `setParent()` and pass it the name of our parent theme's plugin. The API will automatically load the parent theme and any of it's styles.
+
 ```
 public function init() {
 	$this->setParent('defaultthemeplugin');
 	$this->modifyStyle('default', array('addLess' => array('styles/colors.less')));
 }
 ```
-
-In the example above, you'll notice we're not adding any scripts or styles. Instead we call `setParent()` and pass it the name of our parent theme's plugin. The API will automatically load the parent theme and any of it's styles.
 
 The next thing we do is call `modifyStyle()`. This allows us to modify the arguments of any style that's already been registered, by passing an array of key/value parameters.
 
