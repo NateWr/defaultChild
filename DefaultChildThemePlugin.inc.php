@@ -23,7 +23,7 @@ class DefaultChildThemePlugin extends ThemePlugin {
 	 */
 	public function init() {
 		$this->setParent('defaultthemeplugin');
-		$this->modifyStyle('default', array('addLess' => array('styles/colors.less')));
+		$this->modifyStyle('stylesheet', array('addLess' => array('styles/remove-borders.less')));
 	}
 
 	/**

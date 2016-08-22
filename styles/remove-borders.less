@@ -1,0 +1,16 @@
+// This LESS file will be parsed before the default stylesheet is compiled. Any
+// variables defined here will override those in the original stylesheet.
+//
+// You can also add additional CSS style rules if desired.
+
+// Make all border colors transparent
+@bg-border-color: transparent;
+
+// Increase the font size and weight of section titles in the issue table of
+// contents
+.obj_issue_toc .galleys h2,
+.obj_issue_toc .section h2 {
+	font-size: @font-header;
+	font-weight: @bold;
+	color: @text;
+}
