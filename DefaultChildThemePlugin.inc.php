@@ -31,7 +31,7 @@ class DefaultChildThemePlugin extends ThemePlugin {
 	 * @return string
 	 */
 	function getDisplayName() {
-		return __('plugins.themes.default-child.name');
+		return __('plugins.themes.defaultChild.name');
 	}
 
 	/**
@@ -39,7 +39,7 @@ class DefaultChildThemePlugin extends ThemePlugin {
 	 * @return string
 	 */
 	function getDescription() {
-		return __('plugins.themes.default-child.description');
+		return __('plugins.themes.defaultChild.description');
 	}
 }
 
